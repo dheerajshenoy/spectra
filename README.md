@@ -25,8 +25,15 @@ Presentation tool written in rust
 
 1. Egui
 2. Serde
+3. TOML
+4. Eframe
 
 # Installation
 
-1. Clone this repository
-2. Cargo install and run ?
+For now only building from source is possible.
+
+```bash
+git clone https://github.com/dheerajshenot/spectra.git
+cd spectra
+cargo build --release
+```
