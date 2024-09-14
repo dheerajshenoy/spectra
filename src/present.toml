@@ -1,23 +1,29 @@
-[slide1]
+[properties]
+paper-size = "A4"
+background = "#000000"
+font-size = "14px"
+color = "#FFFFFF"
+
+[[slides]]
 layout = "vertical"  # Stacks elements vertically
 elements = [
-    { type = "text", content = "Welcome to the Presentation", font_size = 40, color = "#ffffff", background_color = "#000000" },
-    { type = "image", content = "path/to/image.png", size = { width = 400, height = 300 } }
+    { element = "text", content = "Welcome to the Presentation", font_size = 40, color = "#ffffff", background_color = "#000000" },
+    { element = "image", content = "path/to/image.png", size = { width = 400, height = 300 } }
 ]
 
-[slide2]
+[[slides]]
 layout = "horizontal"  # Aligns elements horizontally
 elements = [
-    { type = "video", content = "path/to/video.mp4", autoplay = true },
-    { type = "text", content = "Enjoy the video", font_size = 30, color = "#00ff00" }
+    { element = "video", content = "path/to/video.mp4", autoplay = true },
+    { element = "text", content = "Enjoy the video", font_size = 30, color = "#00ff00" }
 ]
 
-[slide3]
+[[slides]]
 layout = "grid"  # Arranges elements in a grid
 grid = { rows = 2, columns = 2 }
 elements = [
-    { type = "text", content = "Grid Element 1", font_size = 20 },
-    { type = "image", content = "path/to/image1.png", size = { width = 200, height = 150 } },
-    { type = "image", content = "path/to/image2.png", size = { width = 200, height = 150 } },
-    { type = "text", content = "Grid Element 4", font_size = 20 }
+    { element = "text", content = "Grid Element 1", font_size = 20 },
+    { element = "image", content = "path/to/image1.png", size = { width = 200, height = 150 } },
+    { element = "image", content = "path/to/image2.png", size = { width = 200, height = 150 } },
+    { element = "text", content = "Grid Element 4", font_size = 20 }
 ]
