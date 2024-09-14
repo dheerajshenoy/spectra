@@ -8,13 +8,14 @@ color = "#FFFFFF"
 layout = "vertical"  # Stacks elements vertically
 elements = [
     {oftype = "text", content = "Welcome to the Presentation", font_size = 40, color = "#ffffff", background_color = "#000000" },
-    {oftype = "image", content = "path/to/image.png", size = { width = 400, height = 300 } }
+    {oftype = "image", content = "/home/neo/Pictures/2024-07-24_12-21.png", size = { width = 400, height = 300 } },
+    {oftype = "points", points = ["This is the first point", "This is the second point", "This is the third point"], color = "#FFFFFF" },
 ]
 
 [[slides]]
 layout = "horizontal"  # Aligns elements horizontally
 elements = [
-    {oftype = "video", content = "path/to/video.mp4", autoplay = true },
+    {oftype = "video", content = "/home/neo/2024-08-16 10-36-34.mp4", autoplay = true },
     {oftype = "text", content = "Enjoy the video", font_size = 30, color = "#00ff00" }
 ]
 

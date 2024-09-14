@@ -9,13 +9,13 @@ Presentation tool written in rust
   - [ ] Italics
   - [ ] Strikethrough
 - [x] Underline
-- [ ] Image
+- [x] Image
 - [ ] GIF
 - [ ] Video
-- [ ] Bullet Points
+- [x] Bullet Points
 - [ ] Layout
   - [x] Vertical
-  - [ ] Horizontal
+  - [x] Horizontal
   - [ ] Grid
 - [ ] Alignment
 - [x] Navigation Buttons

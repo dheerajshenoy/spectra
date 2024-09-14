@@ -18,7 +18,9 @@ fn main() -> eframe::Result {
     let win_opts = NativeOptions::default();
     run_native("Spectra",
         win_opts,
-        Box::new(|_cc| {
+        Box::new(|cc| {
+
+            egui_extras::install_image_loaders(&cc.egui_ctx);
             Ok(Box::new(app))
         }),
     )

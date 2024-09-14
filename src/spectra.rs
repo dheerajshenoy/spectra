@@ -1,5 +1,5 @@
 use eframe::{run_native, App, NativeOptions};
-use egui::{Align, CentralPanel, Layout, RichText, Ui, Widget};
+use egui::{Align, CentralPanel, Image, Layout, RichText, Ui, Widget};
 use serde::de::Error;
 use toml;
 use std::fs;
@@ -24,6 +24,7 @@ impl Spectra {
             is_first_slide: true,
             is_last_slide: false
         }
+
     }
 
     // Goto prev slide
@@ -50,6 +51,31 @@ impl Spectra {
                         .background_color(egui::Color32::from_hex(&element.background_color.as_deref().unwrap_or("#00000000")).unwrap())
                         .color(egui::Color32::from_hex(&element.color.as_deref().unwrap_or("#000000")).unwrap())
                     );
+                }
+
+                "image" => {
+                    ui.add(
+                        Image::from_uri("file://".to_string() + element.content.as_deref().unwrap())
+                            .max_height(element.size.as_ref().unwrap().height)
+                            .max_width(element.size.as_ref().unwrap().width)
+                    );
+                }
+
+                "points" => {
+                    for bullet in element.points.as_deref().unwrap() {
+                        ui.horizontal(|ui| {
+                            ui.label("•");
+                            ui.label(RichText::new(bullet)
+                                .size(element.font_size.unwrap_or(14.0) as f32)
+                                .background_color(egui::Color32::from_hex(&element.background_color.as_deref().unwrap_or("#00000000")).unwrap())
+                                .color(egui::Color32::from_hex(&element.color.as_deref().unwrap_or("#000000")).unwrap())
+                            );
+                        });
+                    }
+                }
+
+                "latex" => {
+
                 }
 
                 _ => {
@@ -96,6 +122,7 @@ impl App for Spectra {
 
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
 
+        
         self.is_last_slide = self.current_slide_index == self.slides.len() - 1;
         self.is_first_slide = self.current_slide_index == 0;
 
