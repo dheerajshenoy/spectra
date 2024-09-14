@@ -45,9 +45,10 @@ impl Spectra {
             match element.oftype.as_str() {
 
                 "text" => {
-                    ui.label(RichText::new(&element.content.clone().unwrap())
-                        .size(element.font_size.clone().unwrap() as f32)
-                        .color(egui::Color32::from_hex(&element.color.clone().unwrap()).unwrap())
+                    ui.label(RichText::new(element.content.as_deref().unwrap())
+                        .size(element.font_size.unwrap_or(14.0) as f32)
+                        .background_color(egui::Color32::from_hex(&element.background_color.as_deref().unwrap_or("#00000000")).unwrap())
+                        .color(egui::Color32::from_hex(&element.color.as_deref().unwrap_or("#000000")).unwrap())
                     );
                 }
 
@@ -85,7 +86,11 @@ impl Spectra {
 
     }
 
+
+
 }
+
+
 
 impl App for Spectra {
 

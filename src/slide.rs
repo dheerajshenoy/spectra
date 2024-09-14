@@ -23,7 +23,7 @@ pub struct Element {
     pub oftype: String,
     pub content: Option<String>,  // For text, images, etc.
     pub bullets: Option<Vec<String>>,  // For bullet points
-    pub font_size: Option<u32>, // For Text and Bullet Points
+    pub font_size: Option<f32>, // For Text and Bullet Points
     pub color: Option<String>,
     pub background_color: Option<String>,
     pub size: Option<Size>,

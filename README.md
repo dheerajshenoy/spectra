@@ -5,6 +5,10 @@ Presentation tool written in rust
 
 - [x] Read TOML file
 - [x] Text
+  - [ ] Bold
+  - [ ] Italics
+  - [ ] Strikethrough
+- [x] Underline
 - [ ] Image
 - [ ] GIF
 - [ ] Video
