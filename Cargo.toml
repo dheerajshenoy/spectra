@@ -1,0 +1,10 @@
+[package]
+name = "spectra"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = "0.28.1"
+egui = "0.28.1"
+serde = "1.0.210"
+toml = "0.8.19"
