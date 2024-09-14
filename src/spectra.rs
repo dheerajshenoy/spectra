@@ -56,8 +56,8 @@ impl Spectra {
                 "image" => {
                     ui.add(
                         Image::from_uri("file://".to_string() + element.content.as_deref().unwrap())
-                            .max_height(element.size.as_ref().unwrap().height)
-                            .max_width(element.size.as_ref().unwrap().width)
+                            .max_height(element.size.as_ref().unwrap_or(&slide::Size { width: (400.0), height: (400.0) }).height)
+                            .max_width(element.size.as_ref().unwrap_or(&slide::Size { width: (400.0), height: (400.0) }).width)
                     );
                 }
 

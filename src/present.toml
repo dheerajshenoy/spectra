@@ -8,7 +8,8 @@ color = "#FFFFFF"
 layout = "vertical"  # Stacks elements vertically
 elements = [
     {oftype = "text", content = "Welcome to the Presentation", font_size = 40, color = "#ffffff", background_color = "#000000" },
-    {oftype = "image", content = "/home/neo/Pictures/2024-07-24_12-21.png", size = { width = 400, height = 300 } },
+    {oftype = "image", content = "/home/neo/Gits/spectra/src/Indian_Institute_of_Astrophysics_Logo.svg", size = { width = 400, height = 300 } },
+    # {oftype = "image", content = "/home/neo/Gits/spectra/src/2024-07-24 11-03-00.gif"},
     {oftype = "points", points = ["This is the first point", "This is the second point", "This is the third point"], color = "#FFFFFF" },
 ]
 
