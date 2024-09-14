@@ -9,7 +9,7 @@ pub struct SpectraFile {
 }
 
 #[derive(Deserialize)]
-enum ElementType {
+pub enum ElementType {
     Text,
     Image,
     BulletPoints,
@@ -19,27 +19,27 @@ enum ElementType {
 }
 
 #[derive(Deserialize)]
-struct Element {
-    element: Option<String>,
-    content: Option<String>,  // For text, images, etc.
-    bullets: Option<Vec<String>>,  // For bullet points
-    font_size: Option<u32>, // For Text and Bullet Points
-    color: Option<String>,
-    background_color: Option<String>,
-    size: Option<Size>,
-    autoplay: Option<bool>, // For Video and GIF
+pub struct Element {
+    pub oftype: String,
+    pub content: Option<String>,  // For text, images, etc.
+    pub bullets: Option<Vec<String>>,  // For bullet points
+    pub font_size: Option<u32>, // For Text and Bullet Points
+    pub color: Option<String>,
+    pub background_color: Option<String>,
+    pub size: Option<Size>,
+    pub autoplay: Option<bool>, // For Video and GIF
 }
 
 #[derive(Deserialize)]
 pub struct Slide {
-    layout: String,
-    elements: Vec<Element>,
+    pub layout: String,
+    pub elements: Vec<Element>,
 }
 
 #[derive(Deserialize)]
 struct Size {
-    width: u32,
-    height: u32,
+    pub width: u32,
+    pub height: u32,
 }
 
 #[derive(Deserialize)]

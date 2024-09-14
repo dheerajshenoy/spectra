@@ -1,16 +1,15 @@
 use eframe::{run_native, App, NativeOptions};
-use egui::{Align, CentralPanel, Layout};
+use egui::{Align, CentralPanel, Layout, RichText, Ui, Widget};
 use serde::de::Error;
 use toml;
 use std::fs;
 
-use crate::slide::{self, SpectraFile};
+use crate::slide::{self, Element, ElementType, Slide, SpectraFile};
 
 // Main application state
 pub struct Spectra {
-    nslides: u32,
-    current_slide_index: u32,
-
+    current_slide_index: usize,
+    slides: Vec<Slide>,
     is_last_slide: bool,
     is_first_slide: bool,
 }
@@ -18,11 +17,10 @@ pub struct Spectra {
 // Methods for spectra
 impl Spectra {
 
-    pub fn new(sfile: &SpectraFile) -> Self {
-
+    pub fn new(sfile: SpectraFile) -> Self {
         Self {
-            nslides: sfile.slides.len() as u32,
             current_slide_index: 0,
+            slides: sfile.slides,
             is_first_slide: true,
             is_last_slide: false
         }
@@ -41,16 +39,64 @@ impl Spectra {
             self.current_slide_index += 1;
         }
     }
+
+    fn render_elements(&self, ui: &mut Ui, elements: &[Element]) {
+        for element in elements {
+            match element.oftype.as_str() {
+
+                "text" => {
+                    ui.label(RichText::new(&element.content.clone().unwrap())
+                        .size(element.font_size.clone().unwrap() as f32)
+                        .color(egui::Color32::from_hex(&element.color.clone().unwrap()).unwrap())
+                    );
+                }
+
+                _ => {
+
+                }
+            }
+        }
+    }
+
+    fn load_slide(&self, ui: &mut Ui, index: usize) {
+        let slide = &self.slides[index];
+
+        let layout = match slide.layout.as_str() {
+
+            "vertical" => {
+                ui.vertical(|ui| {
+                    self.render_elements(ui, &slide.elements)
+                });
+            },
+
+            "horizontal" => {
+                ui.horizontal(|ui| {
+                    self.render_elements(ui, &slide.elements)
+                });
+            }
+
+            _ => {
+
+            }
+        };
+        
+
+
+
+    }
+
 }
 
 impl App for Spectra {
 
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
 
-        self.is_last_slide = self.current_slide_index == self.nslides - 1;
+        self.is_last_slide = self.current_slide_index == self.slides.len() - 1;
         self.is_first_slide = self.current_slide_index == 0;
 
         CentralPanel::default().show(ctx, |ui| {
+
+            self.load_slide(ui, self.current_slide_index);
 
             // Navigation Buttons
             ui.with_layout(Layout::left_to_right(Align::BOTTOM), |ui| {

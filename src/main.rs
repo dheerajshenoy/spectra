@@ -14,7 +14,7 @@ fn load_presentation_from_toml(file_path: &str) -> SpectraFile {
 }
 
 fn main() -> eframe::Result {
-    let app : Spectra = Spectra::new(&load_presentation_from_toml("/home/neo/Gits/spectra/src/present.toml"));
+    let app : Spectra = Spectra::new(load_presentation_from_toml("/home/neo/Gits/spectra/src/present.toml"));
     let win_opts = NativeOptions::default();
     run_native("Spectra",
         win_opts,

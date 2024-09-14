@@ -4,13 +4,13 @@ Presentation tool written in rust
 # Features
 
 - [x] Read TOML file
-- [ ] Text
+- [x] Text
 - [ ] Image
 - [ ] GIF
 - [ ] Video
 - [ ] Bullet Points
 - [ ] Layout
-  - [ ] Vertical
+  - [x] Vertical
   - [ ] Horizontal
   - [ ] Grid
 - [ ] Alignment
