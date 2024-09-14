@@ -3,6 +3,7 @@ Presentation tool written in rust
 
 # Features
 
+- [x] Read TOML file
 - [ ] Text
 - [ ] Image
 - [ ] GIF
